@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import style from "./style.module.css"
 import mailData from "../../json/leads.json"
 import history from '../../common/history'
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 function Leads() {
     const [leads, setLeads] = useState([])
     const [leadNumber, setLeadNumber] = useState(0)
     const [time, setTime] = useState(0)
-
+    const [showPopup, setShowPopup] = useState(false)
     useEffect(() => {
         let x = setInterval(() => {
             if (time === 120) {
-                setTime(0)
+                setShowPopup(true)
             } else if (time < 120) {
-
                 setTime(time + 1)
             }
         }, 1000);
@@ -70,6 +70,13 @@ function Leads() {
         history.push("/overview")
     }
 
+    const onPopupOK = () => {
+        setTime(0)
+        setShowPopup(false)
+        if (leadNumber < leads.length - 1) {
+            setLeadNumber(leadNumber + 1)
+        }
+    }
     return (
         <div className={style.leadDiv}>
             <div className={style.mailDiv}>
@@ -96,6 +103,13 @@ function Leads() {
                         </div>
                     </div>}
             </div>
+            <SweetAlert
+                showCancel={false}
+                onConfirm={onPopupOK}
+                show={showPopup}
+                title={"Session expired"}
+            >   {"Page will be refreshed automatically"}
+            </SweetAlert>
         </div>
     )
 }
