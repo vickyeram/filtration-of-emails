@@ -1,0 +1,42 @@
+.leadDiv {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mailDiv {
+  max-width: 60%;
+  width: 100%;
+}
+.topInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.topInfo span {
+  text-transform: uppercase;
+}
+.emailDiv {
+  margin-top: 40px;
+}
+.emailDiv .subDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.emailDiv .subDiv label{
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.emailDiv .subDiv input{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.emailDiv textarea{
+  resize: none;
+  width: 100%;
+  padding: 5px;
+}

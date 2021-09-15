@@ -1,0 +1,17 @@
+.loginDiv {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loginDiv span{
+    font-size: 20px;
+    margin-bottom: 5px;
+    display: block;
+}
+.formControl {
+  width: 220px;
+  margin-bottom: 40px;
+}
